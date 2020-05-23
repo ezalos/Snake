@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   auto_Snake.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ezalos <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 11:15:02 by ldevelle          #+#    #+#             */
-/*   Updated: 2020/05/23 16:32:46 by ezalos           ###   ########.fr       */
+/*   Created: 2020/05/23 16:35:27 by ezalos            #+#    #+#             */
+/*   Updated: 2020/05/23 16:35:27 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEAD_H
-# define HEAD_H
+#ifndef AUTO_SNAKE_H
+# define AUTO_SNAKE_H
 
-# include "libft.h"
-# include "auto_Snake.h"
+# include "auto/auto_Snake_.h"
 
 #endif
