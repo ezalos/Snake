@@ -1,33 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 11:15:02 by ldevelle          #+#    #+#             */
-/*   Updated: 2020/05/24 14:45:58 by ezalos           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef HEAD_H
 # define HEAD_H
 
 # include "libft.h"
+
+# define TRUE		1
+# define FALSE		0
 
 # define SNK_SNAKE	'@'
 # define SNK_FOOD	'+'
 # define SNK_EMPTY	' '
 # define SNK_WALL	'#'
 
+# define WIDTH		80
+# define HEIGHT		25
+# define SEED_MAX	123456789
 
-typedef struct		s_snake
+
+typedef struct		s_arena
 {
-	int				height;
 	int				width;
+	int				height;
+	int				total_size;
 	char			**board;
 
-}					t_snake;
+}					t_arena;
+
 
 # include "auto_Snake.h"
 
