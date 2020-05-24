@@ -3,6 +3,9 @@
 
 # include "libft.h"
 
+# define TRUE		1
+# define FALSE		0
+
 # define SNK_SNAKE	'@'
 # define SNK_FOOD	'+'
 # define SNK_EMPTY	' '
@@ -10,16 +13,18 @@
 
 # define WIDTH		80
 # define HEIGHT		25
+# define SEED_MAX	123456789
 
 
-typedef struct		s_snake
+typedef struct		s_arena
 {
 	int				width;
 	int				height;
 	int				total_size;
 	char			**board;
 
-}					t_snake;
+}					t_arena;
+
 
 # include "auto_Snake.h"
 

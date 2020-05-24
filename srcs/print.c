@@ -7,7 +7,7 @@ void	snk_print_pxl(int type)
 	else if (type == SNK_SNAKE)
 		ft_printf("%~{155;255;155}");
 	else if (type == SNK_EMPTY)
-		ft_printf("%~{}");
+		ft_printf("%~{b155;155;255}");
 	else if (type == SNK_WALL)
 		ft_printf("%~{155;155;255}");
 	else
@@ -19,7 +19,7 @@ void	snk_print_pxl(int type)
 	ft_printf("%~{}");
 }
 
-void	snk_print(t_snake* snake)
+void	snk_print(t_arena* arena)
 {
 	int start_row;
 	int start_col;
@@ -29,13 +29,13 @@ void	snk_print(t_snake* snake)
 	start_row = 3;
 	start_col = 3;
 	row = -1;
-	while (++row < snake->height)
+	while (++row < arena->height)
 	{
 		ft_place_cursor(start_row + row, start_col);
 		col = -1;
-		while (++col < snake->width)
+		while (++col < arena->width)
 		{
-			snk_print_pxl(snake->board[row][col]);
+			snk_print_pxl(arena->board[row][col]);
 		}
 	}
 }
