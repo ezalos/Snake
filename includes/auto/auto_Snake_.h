@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: deyaberger <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/24 15:46:12 by deyaberge         #+#    #+#             */
-/*   Updated: 2020/05/24 15:46:12 by deyaberge        ###   ########.fr       */
+/*   Created: 2020/05/24 16:17:48 by deyaberge         #+#    #+#             */
+/*   Updated: 2020/05/24 16:17:48 by deyaberge        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 void		snk_print_pxl(int type);
 void		snk_print(t_arena* arena);
 void		create_random(t_arena *arena, int *row, int *col);
-int		check_empty(t_arena *arena, int row, int col);
-void		fill_random(t_arena *arena, char type);
+int		check_empty(t_arena *arena, int *row, int *col);
+void		fill_random(t_arena *arena, int *row, int *col, char type);
+void		init_snake(t_arena *arena);
 void		init_board(t_arena *arena);
 int main(int ac, char **av);
 

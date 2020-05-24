@@ -6,24 +6,36 @@ void			create_random(t_arena *arena, int *row, int *col)
 	*col = ft_rand(arena->width, ft_seed_time(0, SEED_MAX));
 }
 
-int			check_empty(t_arena *arena, int row, int col)
+int			check_empty(t_arena *arena, int *row, int *col)
 {
-	if (arena->board[row][col] != SNK_EMPTY)
+	if (arena->board[*row][*col] != SNK_EMPTY)
 		return (FALSE);
 	return (TRUE);
 }
 
-void			fill_random(t_arena *arena, char type)
+void			fill_random(t_arena *arena, int *row, int *col, char type)
 {
-		int row;
-		int col;
-
-		create_random(arena, &row, &col);
+		create_random(arena, row, col);
 		if (check_empty(arena, row, col) == FALSE)
 			while (check_empty(arena, row, col) == FALSE)
-				create_random(arena, &row, &col);
+				create_random(arena, row, col);
 		else
-			arena->board[row][col] = type;
+			arena->board[*row][*col] = type;
+}
+
+void			init_snake(t_arena *arena)
+{
+	t_coor		*coor;
+	int			row;
+	int			col;
+
+	fill_random(arena, &row, &col, SNK_SNAKE);
+	coor = ft_memalloc(sizeof(t_coor));
+	coor->row = row;
+	coor->col = col;
+	arena->snake = ft_memalloc(sizeof(t_snake));
+	arena->snake->len = 1;
+	arena->snake->body = ft_lstnew(coor, sizeof(t_coor*));
 }
 
 void			init_board(t_arena *arena)
@@ -47,7 +59,9 @@ void			init_board(t_arena *arena)
 		}
 		row++;
 	}
-	fill_random(arena, SNK_SNAKE);
-	fill_random(arena, SNK_FOOD);
+	init_snake(arena);
+	fill_random(arena, &row, &col, SNK_FOOD);
+	arena->food.row = row;
+	arena->food.col = col;
 	snk_print(arena);
 }
