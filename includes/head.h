@@ -6,7 +6,7 @@
 /*   By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:15:02 by ldevelle          #+#    #+#             */
-/*   Updated: 2020/05/24 12:54:49 by deyaberge        ###   ########.fr       */
+/*   Updated: 2020/05/24 14:45:58 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define HEAD_H
 
 # include "libft.h"
-# include "auto_Snake.h"
 
 # define SNK_SNAKE	'@'
 # define SNK_FOOD	'+'
@@ -29,5 +28,7 @@ typedef struct		s_snake
 	char			**board;
 
 }					t_snake;
+
+# include "auto_Snake.h"
 
 #endif
