@@ -6,7 +6,7 @@
 #    By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 15:04:16 by ldevelle          #+#    #+#              #
-#    Updated: 2020/05/24 12:27:40 by deyaberge        ###   ########.fr        #
+#    Updated: 2020/05/24 14:22:36 by deyaberge        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -336,6 +336,6 @@ FORCE:
 .PHONY	:	all clean fclean re git file object_ready check update\
 			rm_update_tmp_dir auto_dir prototypes sources modules\
 			rere auteur run unit_test big init init_git FORCE
-.SILENT	:	clean fclean re git file object_ready check update\
+.SILENT	:	all clean fclean re git file object_ready check update\
 			rm_update_tmp_dir auto_dir prototypes sources modules\
 			rere auteur unit_test big init init_git FORCE

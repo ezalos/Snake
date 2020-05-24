@@ -2,7 +2,8 @@
 
 int main(int ac, char **av)
 {
+	init_board();
 	if (ac > 1)
-		printf("%s %jd\n", av[1], ft_rand(10, 10));
+		ft_printf("%s\n", av[1]);
 	return (0);
 }

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   auto_Snake_.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ezalos <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: deyaberger <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/23 16:35:27 by ezalos            #+#    #+#             */
-/*   Updated: 2020/05/23 16:35:27 by ezalos           ###   ########.fr       */
+/*   Created: 2020/05/24 14:26:47 by deyaberge         #+#    #+#             */
+/*   Updated: 2020/05/24 14:26:47 by deyaberge        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AUTO_SNAKE__H
 # define AUTO_SNAKE__H
 
+t_snake		init_board(void);
 int main(int ac, char **av);
 
 #endif
