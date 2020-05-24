@@ -6,13 +6,13 @@
 #    By: ldevelle <ldevelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 15:04:16 by ldevelle          #+#    #+#              #
-#    Updated: 2020/04/15 20:21:44 by ezalos           ###   ########.fr        #
+#    Updated: 2020/05/24 12:27:40 by deyaberge        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 include init.mk
 
-CC 		= gcc
+CC 		= clang
 AR		= ar -rcs
 
 ##########################
@@ -174,7 +174,7 @@ $(NAME):	$(OBJS) $(HEAD_DIR)
 	@$(call run_and_test, $(AR) $(NAME) $(OBJS))
 else
 $(NAME):	$(LIB) $(OBJS) $(HEAD_DIR)
-	@$(call run_and_test, $(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIB) $(HEADERS_DIRECTORIES))
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIB) $(HEADERS_DIRECTORIES)
 endif
 
 DIR_PREP = $(shell find $(MASTER) -type d -exec echo {} \; | sed 's~$(MASTER)~$(DIR_OBJ)~g')
@@ -336,6 +336,6 @@ FORCE:
 .PHONY	:	all clean fclean re git file object_ready check update\
 			rm_update_tmp_dir auto_dir prototypes sources modules\
 			rere auteur run unit_test big init init_git FORCE
-.SILENT	:	all clean fclean re git file object_ready check update\
+.SILENT	:	clean fclean re git file object_ready check update\
 			rm_update_tmp_dir auto_dir prototypes sources modules\
 			rere auteur unit_test big init init_git FORCE
