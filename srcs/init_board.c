@@ -63,5 +63,5 @@ void			init_board(t_arena *arena)
 	fill_random(arena, &row, &col, SNK_FOOD);
 	arena->food.row = row;
 	arena->food.col = col;
-	snk_print(arena);
+	//snk_print(arena);
 }

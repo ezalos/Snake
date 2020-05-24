@@ -7,5 +7,7 @@ int main(int ac, char **av)
 	init_board(&arena);
 	if (ac > 1)
 		ft_printf("%s\n", av[1]);
+
+	get_input(&arena);
 	return (0);
 }
