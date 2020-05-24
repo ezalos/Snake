@@ -1,2 +1,3 @@
-PAT += 	srcs/main.c \
-	srcs/init_board.c 
+PAT += 	srcs/init_board.c \
+	srcs/main.c \
+	srcs/print.c 
