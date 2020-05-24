@@ -21,6 +21,40 @@ void			fill_random(t_arena *arena, int *row, int *col, char type)
 				create_random(arena, row, col);
 		else
 			arena->board[*row][*col] = type;
+	if (type == SNK_FOOD)
+	{
+		arena->food.row = *row;
+		arena->food.col = *col;
+	}
+}
+
+t_list			*ft_lstcut(t_list **alst, int indx)
+{
+	t_list	*search;
+	t_list	*to_cut;
+	int		i;
+
+	i = 0;
+	search = *alst;
+	to_cut = *alst;
+	if (indx == 0)
+	{
+		*alst = search->next;
+		to_cut->next = NULL;
+		return (to_cut);
+	}
+	while (search != NULL 
+		&& search->next != NULL 
+		&& search->next->next != NULL 
+		&& (i + 1 < indx|| indx == -1))
+	{
+		search = search->next;
+		i++;
+	}
+	to_cut = search->next;
+	search->next = to_cut->next;
+	to_cut->next = NULL;
+	return (to_cut);
 }
 
 void			init_snake(t_arena *arena)
@@ -36,6 +70,11 @@ void			init_snake(t_arena *arena)
 	arena->snake = ft_memalloc(sizeof(t_snake));
 	arena->snake->len = 1;
 	arena->snake->body = ft_lstnew(coor, sizeof(t_coor*));
+}
+
+void			play_game(t_arena *arena)
+{
+	snk_print(arena);
 }
 
 void			init_board(t_arena *arena)
@@ -61,7 +100,5 @@ void			init_board(t_arena *arena)
 	}
 	init_snake(arena);
 	fill_random(arena, &row, &col, SNK_FOOD);
-	arena->food.row = row;
-	arena->food.col = col;
-	snk_print(arena);
+	play_game(arena);
 }
