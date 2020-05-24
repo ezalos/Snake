@@ -6,7 +6,7 @@
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:15:02 by ezalos            #+#    #+#             */
-/*   Updated: 2020/05/24 20:35:31 by ezalos           ###   ########.fr       */
+/*   Updated: 2020/05/24 21:28:31 by deyaberge        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,13 @@ int 	get_input(t_arena *arena)
 	if (input == SNK_UP
 	||  input == 'w')
 	{
-		arena->move[SNK_ROW] = 1;
+		arena->move[SNK_ROW] = -1;
 		arena->move[SNK_COL] = 0;
 	}
 	else if (input == SNK_DOWN
 		 ||  input == 's')
 	{
-		arena->move[SNK_ROW] = -1;
+		arena->move[SNK_ROW] = 1;
 		arena->move[SNK_COL] = 0;
 	}
 	else if (input == SNK_LEFT
@@ -75,7 +75,7 @@ int 	get_input(t_arena *arena)
 		 ||  input == 'd')
 	{
 		arena->move[SNK_ROW] = 0;
-		arena->move[SNK_COL] = -1;
+		arena->move[SNK_COL] = 1;
 	}
 	return (0);
 }
