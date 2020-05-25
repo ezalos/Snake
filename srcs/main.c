@@ -1,18 +1,25 @@
 #include "head.h"
 
-int main(int ac, char **av)
+void		play_game(t_arena *arena)
+{
+	_C_CLEAR_SCREEN;
+	snk_print(arena);
+	while (arena->game_over == FALSE)
+	{
+		get_input(arena);
+		move_snake(arena);
+	}
+	ft_printf("sorry you lost baby....\n");
+}
+
+int 		main(int ac, char **av)
 {
 	t_arena		arena;
 	
 	init_board(&arena);
+	init_snake(&arena);
+	play_game(&arena);
 	(void)ac;
 	(void)av;
-	while (1)
-	{
-		get_input(&arena);
-		((t_coor*)arena.snake->body->content)->row += arena.move[SNK_ROW];
-		((t_coor*)arena.snake->body->content)->col += arena.move[SNK_COL];
-		snk_print(&arena);
-	}
 	return (0);
 }
