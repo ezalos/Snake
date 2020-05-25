@@ -15,8 +15,18 @@
 # define SNK_EMPTY	' '
 # define SNK_WALL	'#'
 
-# define WIDTH		30
-# define HEIGHT		25
+# define WIDTH		32
+# define HEIGHT		18
+
+/*
+** ORIGINAL GAME SIZE
+**
+** # define WIDTH		16
+** # define HEIGHT		9
+*/
+
+# define SNK_SHIFT_ROW		2
+# define SNK_SHIFT_COL		4
 
 # define SNK_ROW	0
 # define SNK_COL	1

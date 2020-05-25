@@ -28,9 +28,7 @@ void		create_random(t_arena *arena, int *row, int *col)
 void		fill_random(t_arena *arena, t_coor *coor, char type)
 {
 	create_random(arena, &coor->row, &coor->col);
-	if (arena->board[coor->row][coor->col] != SNK_EMPTY)
-		while (arena->board[coor->row][coor->col] != SNK_EMPTY)
-			create_random(arena, &coor->row, &coor->col);
-		else
-			change_type(arena, coor, type);
+	while (arena->board[coor->row][coor->col] != SNK_EMPTY)
+		create_random(arena, &coor->row, &coor->col);
+	change_type(arena, coor, type);
 }

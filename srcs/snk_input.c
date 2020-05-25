@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   snk_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:15:02 by ezalos            #+#    #+#             */
-/*   Updated: 2020/05/25 13:42:59 by ezalos           ###   ########.fr       */
+/*   Updated: 2020/05/25 21:21:52 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,23 @@ void		fast_terminal(float time, int size, int on_off)
 	}
 }
 
+void	cheat_func(t_arena *arena)
+{
+	t_coor		add_spot;
+	t_list		*new;
+	t_coor		*coor;
+
+	check_move(&add_spot, arena->snake->body->content, arena);
+	coor = ft_memalloc(sizeof(t_coor));
+	coor->row = add_spot.row;
+	coor->col = add_spot.col;
+	new = ft_lstnew(coor, sizeof(t_coor*));
+	ft_lstadd_start(&(arena->snake->body), new);
+	change_type(arena, ((t_coor*)new->content), SNK_SNAKE);
+	arena->snake->len += 1;
+	increase_speed(arena);
+}
+
 
 int 	get_input(t_arena *arena)
 {
@@ -77,6 +94,17 @@ int 	get_input(t_arena *arena)
 		arena->move[SNK_ROW] = 0;
 		arena->move[SNK_COL] = 1;
 	}
+	else if (input == ' ')
+	{
+		fast_terminal(0, 1, 1);
+		ft_press_any_key();
+		fast_terminal(0, 1, 0);
+	}
+	else if (input == 'c')
+		cheat_func(arena);
+	else if (input == '\\')
+		snk_print(arena);
+
 	return (0);
 }
 

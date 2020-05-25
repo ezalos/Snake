@@ -9,7 +9,8 @@ void		play_game(t_arena *arena)
 		get_input(arena);
 		move_snake(arena);
 	}
-	ft_printf("sorry you lost baby....\n");
+	ft_place_cursor(arena->height + SNK_SHIFT_ROW + 1, SNK_SHIFT_COL);
+	ft_printf("Sorry you lost baby....\n");
 }
 
 int 		main(int ac, char **av)
