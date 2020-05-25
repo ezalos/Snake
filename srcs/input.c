@@ -6,7 +6,7 @@
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:15:02 by ezalos            #+#    #+#             */
-/*   Updated: 2020/05/25 10:54:30 by ezalos           ###   ########.fr       */
+/*   Updated: 2020/05/25 13:42:59 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int 	get_input(t_arena *arena)
 {
 	int	input;
 
-	fast_terminal(5, 0, 1);
 	input = 0;
+	fast_terminal(arena->speed, 0, 1);
 	read(0, (char*)&input, 3);
-	fast_terminal(0.3, sizeof(input), 0);
+	fast_terminal(arena->speed, 0, 0);
 	if ((input == SNK_UP
 	||  input == 'w') && arena->move[SNK_ROW] == 0)
 	{

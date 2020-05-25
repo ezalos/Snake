@@ -89,6 +89,19 @@ void			change_type(t_arena *arena, t_list *change, char type)
 	snk_update_pxl(row, col, type);
 }
 
+void			increase_speed(t_arena *arena)
+{
+	if (arena->speed > 1)
+	{
+		arena->speed -= 1;
+		arena->speed = arena->speed - (arena->speed / 5);
+		arena->speed += 1;
+	}
+	else
+		arena->speed = 1.3;
+	//ft_printf("Speed %.6f", arena->speed);
+}
+
 void			get_bigger(t_arena *arena, t_coor add_spot)
 {
 	t_list	*new;
@@ -102,6 +115,7 @@ void			get_bigger(t_arena *arena, t_coor add_spot)
 	change_type(arena, new, SNK_SNAKE);
 	fill_random(arena, &arena->food.row, &arena->food.col, SNK_FOOD);
 	arena->snake->len += 1;
+	increase_speed(arena);
 }
 
 char		check_move(t_coor *new, t_coor *old, t_arena *arena)
@@ -169,6 +183,8 @@ void			init_board(t_arena *arena)
 	arena->height = HEIGHT;
 	arena->total_size = arena->width * arena->height;
 	arena->board = ft_memalloc(sizeof(char*) * arena->height);
+	arena->speed = 3;
+	arena->move[SNK_COL] = 1;
 	row = 0;
 	while (row < HEIGHT)
 	{

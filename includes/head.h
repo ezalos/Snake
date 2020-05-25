@@ -44,6 +44,7 @@ typedef struct		s_snake
 typedef struct		s_arena
 {
 	int				width;
+	float			speed;
 	int				height;
 	int				move[2];
 	int				total_size;
