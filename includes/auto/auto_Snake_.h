@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: deyaberger <marvin@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/25 00:17:42 by deyaberge         #+#    #+#             */
-/*   Updated: 2020/05/25 00:17:42 by deyaberge        ###   ########.fr       */
+/*   Created: 2020/05/25 11:02:46 by deyaberge         #+#    #+#             */
+/*   Updated: 2020/05/25 11:02:46 by deyaberge        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define AUTO_SNAKE__H
 
 void		snk_print_pxl(int type);
+void		snk_update_pxl(int row, int col, int type);
 void		snk_print(t_arena* arena);
 void		create_random(t_arena *arena, int *row, int *col);
 int		check_empty(t_arena *arena, int *row, int *col);
@@ -23,6 +24,7 @@ void		init_snake(t_arena *arena);
 void		change_type(t_arena *arena, t_list *change, char type);
 void		get_bigger(t_arena *arena, t_coor add_spot);
 char		check_move(t_coor *new, t_coor *old, t_arena *arena);
+void		move_on(t_arena *arena, t_coor check_spot);
 void		move_snake(t_arena *arena);
 void		play_game(t_arena *arena);
 void		init_board(t_arena *arena);

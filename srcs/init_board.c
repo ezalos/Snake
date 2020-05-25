@@ -20,7 +20,10 @@ void			fill_random(t_arena *arena, int *row, int *col, char type)
 		while (check_empty(arena, row, col) == FALSE)
 			create_random(arena, row, col);
 		else
+		{
 			arena->board[*row][*col] = type;
+			snk_update_pxl(*row, *col, type);
+		}
 	if (type == SNK_FOOD)
 	{
 		arena->food.row = *row;
@@ -83,6 +86,7 @@ void			change_type(t_arena *arena, t_list *change, char type)
 	row = ((t_coor*)change->content)->row;
 	col = ((t_coor*)change->content)->col;
 	arena->board[row][col] = type;
+	snk_update_pxl(row, col, type);
 }
 
 void			get_bigger(t_arena *arena, t_coor add_spot)
@@ -137,18 +141,22 @@ void			move_snake(t_arena *arena)
 	spot = check_move(&check_spot, arena->snake->body->content, arena);
 	if (spot == SNK_FOOD)
 		get_bigger(arena, check_spot);
+	else if (spot == SNK_SNAKE)
+		arena->game_over = TRUE;
 	else
 		move_on(arena, check_spot);
 }
 
 void			play_game(t_arena *arena)
 {
-	while (1)
+	_C_CLEAR_SCREEN;
+	snk_print(arena);
+	while (arena->game_over == FALSE)
 	{
-		snk_print(arena);
 		get_input(arena);
 		move_snake(arena);
 	}
+	ft_printf("sorry you lost baby....\n");
 }
 
 void			init_board(t_arena *arena)
@@ -156,6 +164,7 @@ void			init_board(t_arena *arena)
 	int			row;
 	int			col;
 
+	arena->game_over = FALSE;
 	arena->width = WIDTH;
 	arena->height = HEIGHT;
 	arena->total_size = arena->width * arena->height;

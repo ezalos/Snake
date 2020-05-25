@@ -15,7 +15,7 @@
 # define SNK_EMPTY	' '
 # define SNK_WALL	'#'
 
-# define WIDTH		80
+# define WIDTH		30
 # define HEIGHT		25
 
 # define SNK_ROW	0
@@ -50,6 +50,7 @@ typedef struct		s_arena
 	char			**board;
 	t_snake			*snake;
 	t_coor			food;
+	int				game_over;
 
 }					t_arena;
 

@@ -1,6 +1,6 @@
 #include "head.h"
-#define SNK_SHIFT_ROW		1
-#define SNK_SHIFT_COL		1
+#define SNK_SHIFT_ROW		2
+#define SNK_SHIFT_COL		4
 
 void	snk_print_pxl(int type)
 {
