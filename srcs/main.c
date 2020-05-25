@@ -16,10 +16,10 @@ int 		main(int ac, char **av)
 {
 	t_arena		arena;
 	
+	(void)ac;
+	(void)av;
 	init_board(&arena);
 	init_snake(&arena);
 	play_game(&arena);
-	(void)ac;
-	(void)av;
 	return (0);
 }

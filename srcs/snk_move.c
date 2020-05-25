@@ -48,7 +48,7 @@ void		move_on(t_arena *arena, t_coor check_spot)
 
 void	move_snake(t_arena *arena)
 {
-	t_coor		check_spot;;
+	t_coor		check_spot;
 	char		spot;
 
 	spot = check_move(&check_spot, arena->snake->body->content, arena);
