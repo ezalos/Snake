@@ -6,7 +6,7 @@
 /*   By: ezalos <ezalos@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 12:15:02 by ezalos            #+#    #+#             */
-/*   Updated: 2020/05/25 21:21:52 by ezalos           ###   ########.fr       */
+/*   Updated: 2020/05/26 11:53:35 by ezalos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,8 @@ int 	get_input(t_arena *arena)
 		cheat_func(arena);
 	else if (input == '\\')
 		snk_print(arena);
-
+	else if (input == 27)//escape key
+		arena->game_over = 1;
 	return (0);
 }
 
