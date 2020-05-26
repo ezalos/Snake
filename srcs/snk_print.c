@@ -6,6 +6,8 @@ void	snk_print_pxl(int type)
 		ft_printf("%~{b255;155;155}");
 	else if (type == SNK_SNAKE)
 		ft_printf("%~{b155;255;155}");
+	else if (type == SNK_DEAD)
+		ft_printf("%~{b100;255;100}");
 	else if (type == SNK_EMPTY)
 		ft_printf("%~{b155;155;255}");
 	else if (type == SNK_WALL)

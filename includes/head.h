@@ -14,6 +14,7 @@
 # define SNK_FOOD	'+'
 # define SNK_EMPTY	' '
 # define SNK_WALL	'#'
+# define SNK_DEAD	'x'
 
 # define WIDTH		32
 # define HEIGHT		18

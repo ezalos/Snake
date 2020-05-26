@@ -55,7 +55,10 @@ void	move_snake(t_arena *arena)
 	if (spot == SNK_FOOD)
 		get_bigger(arena, check_spot);
 	else if (spot == SNK_SNAKE)
+	{
 		arena->game_over = TRUE;
+		change_type(arena, &check_spot, SNK_DEAD);
+	}
 	else
 		move_on(arena, check_spot);
 }
