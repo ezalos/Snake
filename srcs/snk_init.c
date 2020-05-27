@@ -37,7 +37,7 @@ void		init_board(t_arena *arena)
 	arena->height = HEIGHT;
 	arena->total_size = arena->width * arena->height;
 	arena->board = ft_memalloc(sizeof(char*) * arena->height);
-	arena->speed = 3;
+	arena->speed = 3.5;
 	arena->move[SNK_COL] = 1;
 	row = 0;
 	while (row < HEIGHT)

@@ -12,7 +12,11 @@ void			get_bigger(t_arena *arena, t_coor add_spot)
 	new = ft_lstnew(coor, sizeof(t_coor*));
 	ft_lstadd_start(&(arena->snake->body), new);
 	change_type(arena, ((t_coor*)new->content), SNK_SNAKE);
+	ft_place_cursor(arena->height + SNK_SHIFT_ROW, (arena->width * 2) + SNK_SHIFT_COL - 4 - ft_nb_len(arena->snake->len, 10));
+	ft_printf("LVL %-3d\n", arena->snake->len);
 	fill_random(arena, &food, SNK_FOOD);
+	if (1)
+		fill_random(arena, &food, SNK_FOOD);
 	arena->snake->len += 1;
 	increase_speed(arena);
 }
